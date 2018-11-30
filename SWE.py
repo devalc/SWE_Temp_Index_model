@@ -15,7 +15,7 @@ from scipy import optimize as op
 
 #p0 = [tbase, train, tsnow,k]
 p0 = [0,3,0,2.29]
-filepath= 'D:/Chinmay/Hydro_modeling_erin_fall_2018/snotel_623_pre_mgmt.csv'
+filepath= 'snotel_623_pre_mgmt.csv'
 
 
 data, P, T_avg, SWE_obs = process_data(filepath)

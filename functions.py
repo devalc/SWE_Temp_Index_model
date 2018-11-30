@@ -94,4 +94,3 @@ def plot_res(data):
     
     return fig
 
-
