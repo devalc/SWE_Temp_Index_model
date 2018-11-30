@@ -15,7 +15,7 @@ from scipy import optimize as op
 
 #p0 = [tbase, train, tsnow,k]
 p0 = [0,3,0,2.29]
-filepath= 'snotel_623_pre_mgmt.csv'
+filepath= 'data/snotel_623.csv'
 
 
 data, P, T_avg, SWE_obs = process_data(filepath)
@@ -38,4 +38,18 @@ nse= nse(SWE_obs, cumSWE)
 
 plot_res(data)
 
-op.minimize(rmse, p0[3])
+
+## plots Precip and Psnow
+
+fig= plt.figure()
+plt.plot(data.iloc[:,0],data.iloc[:,6],'b-')
+plt.plot(data.iloc[:,0],data.iloc[:,9],'r-')
+#plt.plot(data.iloc[:,0],data.iloc[:,10],'g-')
+plt.xlabel('Date')
+plt.ylabel('Precip(mm)')
+plt.legend(('Precip','Psnow', 'Prain'))
+fig.savefig('plots/Precip_and_Psnow.png', dpi=400)   
+
+## save dataframe after model calculations
+
+data.to_excel("Output_dataframe/obs_mod_swe.xlsx")

@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def process_data(filepath):
-    data = pd.read_csv(filepath, nrows = 6954,parse_dates=['Date'], skiprows=1,\
+    data = pd.read_csv(filepath, nrows = 10214,parse_dates=['Date'], skiprows=1,\
                        names= ['Date', 'SWE_obs','P_accum','T_max','T_min',\
                                'T_avg','P_incremental']).dropna()
     P = data['P_incremental'].values
@@ -87,10 +87,10 @@ def plot_res(data):
     plt.ylabel('Melt flux [mm/day]')
     plt.subplot(414)
     plt.plot(data.iloc[:,0],data.iloc[:,7],'b-')
-    plt.plot(data.iloc[:,0],data.iloc[:,1],'ko')
+    plt.plot(data.iloc[:,0],data.iloc[:,1],'r-')
     plt.xlabel('Date')
     plt.ylabel('SWE [mm]')
     plt.legend(('Modeled SWE','Observed SWE'))
     
-    return fig
+    return fig.savefig('plots/SWE_tmp_index.png', dpi=fig.dpi)
 
