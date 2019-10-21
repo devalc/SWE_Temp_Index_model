@@ -13,8 +13,9 @@ import matplotlib.pyplot as plt
 from functions import *
 from scipy import optimize as op
 
-#p0 = [tbase, train, tsnow,k]
-p0 = [0,3,0,2.29]
+#p0 = [tbase, train, tsnow, k]
+#p0 = [0,3,0,2.29]
+p0 = [0.2486748, 2.4000002, -0.8000008, 2.3418852] ### taken from R optim for now. TBD: implement optimization within this python script
 filepath= 'data/snotel_623.csv'
 
 
